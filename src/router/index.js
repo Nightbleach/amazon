@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 const Home = () => import('../views/home/Home')
 const News = () => import('../views/news/News')
 const NewDetails = () => import('../views/newDetails/NewDetails')
+const ImgNews = () => import('../views/imgNews/ImgNews')
+const ImgDetails = () => import('../views/imgNews/imgNewsComponents/ImgDetails')
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,16 @@ const routes = [
     path: '/newDetails/:id',
     name: 'newDetails',
     component: NewDetails
+  },
+  {
+    path: '/imgNews',
+    name: 'imgNews',
+    component: ImgNews
+  },
+  {
+    path: '/imgNews/:id',
+    name: 'imgDetails',
+    components: ImgDetails
   }
 ]
 

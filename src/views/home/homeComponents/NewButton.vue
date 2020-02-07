@@ -5,7 +5,7 @@
         <v-img class="img"  src='../../../assets/img/menu/menu1.png' alt=""/>
         <div class="text-center">新闻资讯</div>
       </v-col>
-      <v-col cols="4" class="newBtn">
+      <v-col cols="4" class="newBtn" @click="toImgNews">
         <v-img  class="img" src='../../../assets/img/menu/2.png' alt=""/>
         <div class="text-center">图片分享</div>
       </v-col>
@@ -40,6 +40,9 @@ export default {
   methods: {
     toNews () {
       this.$router.push('/newsList')
+    },
+    toImgNews () {
+      this.$router.push('/imgNews')
     }
   }
 }
