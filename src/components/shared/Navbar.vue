@@ -1,7 +1,7 @@
 <template>
     <v-container fluid>
       <v-app-bar
-        absolute
+        app
         color="#fcb69f"
         dark
         src="https://picsum.photos/1920/1080?random"
