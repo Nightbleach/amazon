@@ -8,3 +8,13 @@ export function getNewDetails (id) {
     }
   })
 }
+
+export function getComments (id, page) {
+  return request({
+    url: '/api/getcomments/' + id + '?pageindex=' + page,
+    params: {
+      id,
+      page
+    }
+  })
+}
