@@ -29,7 +29,7 @@ export default {
   methods: {
     getCarousel () {
       getCarousel().then(res => {
-        console.log(res)
+        // console.log(res)
         // const data = res.message
         this.carouselInfo = res.message
       })

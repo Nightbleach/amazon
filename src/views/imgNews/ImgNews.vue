@@ -23,29 +23,19 @@
         </v-slide-item>
       </v-slide-group>
     </v-sheet>
-    <v-row>
-      <v-col cols="12">
-        <v-card cols="12" v-for="item in imgList" :key="item.id" @click="imgDetails">
-          <v-img
-            class="white--text align-end"
-            :src="item.img_url"
-            max-height="499"
-            alt=""
-          >
-              <v-card-title class="pa-0 img-text  body-2">{{item.title}}</v-card-title>
-              <v-card-title class=" img-text pa-0 body-2">{{item.seo_description}}</v-card-title>
-            </v-img>
-        </v-card>
-      </v-col>
-    </v-row>
+    <img-new-items v-for="item in imgList" :key="item.id" :imgList = item />
   </v-container>
 </template>
 
 <script>
+import ImgNewItems from './imgNewsComponents/ImgNewItems'
 import { getImgNews, getImgNewsList } from '../../request/imgNews'
 
 export default {
   name: 'ImgNews',
+  components: {
+    ImgNewItems
+  },
   data () {
     return {
       tabInfo: [],
@@ -58,9 +48,6 @@ export default {
     this.getImgNewsList(0)
   },
   methods: {
-    imgDetails () {
-      // this.$router.push('/imgNews/' + this.id)
-    },
     getImgNews () {
       getImgNews().then(res => {
         console.log(res)
@@ -79,6 +66,5 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.img-text
-  background-color rgba(0, 0, 0, 0.4)
+
 </style>

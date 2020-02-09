@@ -9,7 +9,7 @@
         <v-img  class="img" src='../../../assets/img/menu/2.png' alt=""/>
         <div class="text-center">图片分享</div>
       </v-col>
-      <v-col cols="4" class="newBtn">
+      <v-col cols="4" class="newBtn" @click="toProducts">
         <v-img class="img" src='../../../assets/img/menu/menu3.png' alt=""/>
         <div class="text-center">商品购买</div>
       </v-col>
@@ -43,6 +43,9 @@ export default {
     },
     toImgNews () {
       this.$router.push('/imgNews')
+    },
+    toProducts () {
+      this.$router.push('/products')
     }
   }
 }

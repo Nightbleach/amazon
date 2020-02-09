@@ -6,6 +6,7 @@ const News = () => import('../views/news/News')
 const NewDetails = () => import('../views/newDetails/NewDetails')
 const ImgNews = () => import('../views/imgNews/ImgNews')
 const ImgDetails = () => import('../views/imgNews/imgNewsComponents/ImgDetails')
+const Product = () => import('../views/product/Product')
 
 Vue.use(VueRouter)
 
@@ -34,7 +35,12 @@ const routes = [
   {
     path: '/imgNews/:id',
     name: 'imgDetails',
-    components: ImgDetails
+    component: ImgDetails
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: Product
   }
 ]
 
