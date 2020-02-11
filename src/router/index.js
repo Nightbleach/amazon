@@ -7,6 +7,8 @@ const NewDetails = () => import('../views/newDetails/NewDetails')
 const ImgNews = () => import('../views/imgNews/ImgNews')
 const ImgDetails = () => import('../views/imgNews/imgNewsComponents/ImgDetails')
 const Product = () => import('../views/product/Product')
+const ProductDetails = () => import('../views/product/productComponents/ProductDetails')
+const ProductDesc = () => import('../views/product/productComponents/ProductDesc')
 
 Vue.use(VueRouter)
 
@@ -41,6 +43,16 @@ const routes = [
     path: '/products',
     name: 'products',
     component: Product
+  },
+  {
+    path: '/products/:id',
+    name: 'productDetails',
+    component: ProductDetails
+  },
+  {
+    path: '/home/productDesc/:id',
+    name: 'productDesc',
+    component: ProductDesc
   }
 ]
 

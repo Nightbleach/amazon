@@ -5,10 +5,14 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import VueLazyload from 'vue-lazyload'
 import VuePreview from 'vue-preview'
+import VueCarousel from 'vue-carousel'
+import VueNumberInput from '@chenfengyuan/vue-number-input'
 
 Vue.use(VueLazyload)
 Vue.use(require('vue-moment'))
 Vue.use(VuePreview)
+Vue.use(VueCarousel)
+Vue.use(VueNumberInput)
 
 Vue.config.productionTip = false
 
