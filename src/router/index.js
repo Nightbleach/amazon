@@ -9,6 +9,7 @@ const ImgDetails = () => import('../views/imgNews/imgNewsComponents/ImgDetails')
 const Product = () => import('../views/product/Product')
 const ProductDetails = () => import('../views/product/productComponents/ProductDetails')
 const ProductDesc = () => import('../views/product/productComponents/ProductDesc')
+const Cart = () => import('../views/cart/Cart')
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,11 @@ const routes = [
     path: '/home/productDesc/:id',
     name: 'productDesc',
     component: ProductDesc
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
   }
 ]
 

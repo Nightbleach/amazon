@@ -6,6 +6,7 @@ import vuetify from './plugins/vuetify'
 import VueLazyload from 'vue-lazyload'
 import VuePreview from 'vue-preview'
 import VueCarousel from 'vue-carousel'
+import '@fortawesome/fontawesome-pro/css/all.css'
 import VueNumberInput from '@chenfengyuan/vue-number-input'
 
 Vue.use(VueLazyload)

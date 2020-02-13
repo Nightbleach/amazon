@@ -1,7 +1,7 @@
 <template>
     <v-container>
       <product-carousel :productCarousel = productCarousel />
-      <sell-page :productParams="productParams"/>
+      <sell-page v-for="item in productParams" :key="item.id" :productParams="item"/>
     </v-container>
 </template>
 
