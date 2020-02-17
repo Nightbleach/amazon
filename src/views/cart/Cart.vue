@@ -4,7 +4,8 @@
         <v-row no-gutters>
           <v-col cols="1" class="ml-2 mb-0" >
             <v-switch
-              v-model="switch1"
+              v-model="$store.getters.getGoodsSelected[item.id]"
+              @change="selectedChanged(item.id, $store.getters.getGoodsSelected[item.id])"
               inset
               color="pink lighten-3"
             ></v-switch>
@@ -23,6 +24,10 @@
             </v-card-actions>
           </v-col>
         </v-row>
+      </v-card>
+      <v-card>
+        <v-card-title>总计(不含运费)</v-card-title>
+        <v-card-subtitle>已勾选商品{{getAllSelectedGoods}}件, 总价：{{getSumPrice}}</v-card-subtitle>
       </v-card>
     </v-container>
 </template>
@@ -44,10 +49,26 @@ export default {
       switch1: true
     }
   },
+  computed: {
+    getAllSelectedGoods () {
+      return this.$store.state.cart.filter(item => item.selected).length
+    },
+    getSumPrice () {
+      return '$' + this.$store.state.cart.filter(item => {
+        return item.selected
+      }).reduce((preValue, item) => {
+        return preValue + item.price * item.count
+      }, 0)
+    }
+  },
   created () {
     this.getCartDetails()
   },
   methods: {
+    selectedChanged (id, val) {
+      // console.log(id + '------' + val)
+      this.$store.commit('updateGoodsSelected', { id, selected: val })
+    },
     getCartDetails () {
       let ids = []
       this.$store.state.cart.forEach(item => ids.push(item.id))

@@ -41,17 +41,47 @@ export default new Vuex.Store({
       })
       // 将删除完毕后的， 最新的购物车数据， 同步到本地存储中
       localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
+    // 更新 switch 按钮的更新
+    updateGoodsSelected (state, payload) {
+      state.cart.some(item => {
+        // eslint-disable-next-line eqeqeq
+        if (item.id == payload.id) {
+          item.selected = payload.selected
+        }
+      })
+      // 将switch 按钮改变以后， 最新的购物车数据， 同步到本地存储中
+      localStorage.setItem('cart', JSON.stringify(state.cart))
     }
   },
   actions: {
   },
   getters: {
+    // 获取购物车商品的数量
+    getCartNum (state) {
+      return state.cart.length
+    },
     getAllCount (state) {
       let allCount = 0
       state.cart.forEach(item => {
         allCount += item.count
       })
       return allCount
+    },
+    // 获得每一个商品的数量
+    getGoodsCount (state) {
+      let count = {}
+      state.cart.forEach(item => {
+        count[item.id] = item.count
+      })
+      return count
+    },
+    getGoodsSelected (state) {
+      let o = {}
+      state.cart.forEach(item => {
+        o[item.id] = item.selected
+      })
+      return o
     }
   },
   modules: {

@@ -20,6 +20,7 @@
     </v-card>
     <v-card class="mt-2">
       <h2 class="body-1 pl-4">商品参数</h2>
+      <h3>{{getCartNum}}</h3>
       <v-card-subtitle>
         <p>商品货号：{{productParams.goods_no}}</p>
         <p>库存情况：{{productParams.stock_quantity}}</p>
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'SellPage',
   props: {
@@ -47,6 +49,9 @@ export default {
         return {}
       }
     }
+  },
+  computed: {
+    ...mapGetters(['getCartNum'])
   },
   data () {
     return {
